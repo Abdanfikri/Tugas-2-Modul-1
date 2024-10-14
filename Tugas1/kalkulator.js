@@ -1,5 +1,5 @@
 let display = document.getElementById('display');
-let buttons = Array.from(document.getElementsByClassName('btn'));
+let buttons = Array.from(document.getElementsByClassName('button'));
 let currentOperand = '';
 let operator = '';
 let previousOperand = '';
