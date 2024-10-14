@@ -1,50 +1,50 @@
 let display = document.getElementById('display');
 let buttons = Array.from(document.getElementsByClassName('button'));
-let currentOperand = '';
+let currentOperasi = '';
 let operator = '';
-let previousOperand = '';
+let previousOperasi = '';
 
 buttons.map(button => {
     button.addEventListener('click', (e) => {
         const value = e.target.innerText;
 
         if (value === 'AC') {
-            currentOperand = '';
-            previousOperand = '';
+            currentOperasi = '';
+            previousOperasi = '';
             operator = '';
             display.value = '';
         } else if (value === '%') {
             operator = '%';
-            previousOperand = currentOperand;
-            currentOperand = '';
+            previousOperasi = currentOperasi;
+            currentOperasi = '';
         } else if (value === 'x^y') {
             operator = '^';
-            previousOperand = currentOperand;
-            currentOperand = '';
+            previousOperasi = currentOperasi;
+            currentOperasi = '';
         } else if (value === '/' || value === '*' || value === '-' || value === '+') {
             operator = value;
-            previousOperand = currentOperand;
-            currentOperand = '';
+            previousOperasi = currentOperasi;
+            currentOperasi = '';
         } else if (value === '=') {
             if (operator === '+') {
-                currentOperand = parseFloat(previousOperand) + parseFloat(currentOperand);
+                currentOperasi = parseFloat(previousOperasi) + parseFloat(currentOperasi);
             } else if (operator === '-') {
-                currentOperand = parseFloat(previousOperand) - parseFloat(currentOperand);
+                currentOperasi = parseFloat(previousOperasi) - parseFloat(currentOperasi);
             } else if (operator === '*') {
-                currentOperand = parseFloat(previousOperand) * parseFloat(currentOperand);
+                currentOperasi = parseFloat(previousOperasi) * parseFloat(currentOperasi);
             } else if (operator === '/') {
-                currentOperand = parseFloat(previousOperand) / parseFloat(currentOperand);
+                currentOperasi = parseFloat(previousOperasi) / parseFloat(currentOperasi);
             } else if (operator === '%') {
-                currentOperand = parseFloat(previousOperand) % parseFloat(currentOperand);
+                currentOperasi = parseFloat(previousOperasi) % parseFloat(currentOperasi);
             } else if (operator === '^') {
-                currentOperand = Math.pow(parseFloat(previousOperand), parseFloat(currentOperand));
+                currentOperasi = Math.pow(parseFloat(previousOperasi), parseFloat(currentOperasi));
             }
-            display.value = currentOperand;
+            display.value = currentOperasi;
             operator = '';
-            previousOperand = '';
+            previousOperasi = '';
         } else {
-            currentOperand += value;
-            display.value = currentOperand;
+            currentOperasi += value;
+            display.value = currentOperasi;
         }
     });
 });

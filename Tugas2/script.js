@@ -1,11 +1,11 @@
-document.getElementById('add-btn').addEventListener('click', addTodo);
+document.getElementById('add-button').addEventListener('click', addTodo);
 
 function addTodo() {
     const todoInput = document.getElementById('todo-input');
     const todoText = todoInput.value;
 
     if (todoText === '') {
-        alert('Please enter a task');
+        alert('Tidak boleh kosong');
         return;
     }
 
@@ -20,13 +20,13 @@ function addTodo() {
 
 
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete');
-    deleteBtn.innerText = 'Delete';
-    deleteBtn.addEventListener('click', () => {
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete');
+    deleteButton.innerText = 'Delete';
+    deleteButton.addEventListener('click', () => {
         todoList.removeChild(li);
     });
-    li.appendChild(deleteBtn);
+    li.appendChild(deleteButton);
 
     todoList.appendChild(li);
     todoInput.value = '';
